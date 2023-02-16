@@ -1,0 +1,19 @@
+{
+  "name": "discord-bot",
+  "version": "1.0.0",
+  "description": "Discord bot for my server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rjjgallagher/discord-bot.git"
+  },
+  "author": "Ryan Gallagher",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rjjgallagher/discord-bot/issues"
+  },
+  "homepage": "https://github.com/rjjgallagher/discord-bot#readme"
+}
