@@ -33,33 +33,54 @@ for (const file of commandFiles) {
 	}
 }
 
+/*
+   For an explanation on the code for creating the event handler below, see:
+   https://discordjs.guide/creating-your-bot/event-handling.html#reading-event-files:~:text=12%0A13%0A14-,The%20Client,will%20automatically%20retrieve%20and%20register%20it%20whenever%20you%20restart%20your%20bot.,-TIP
+*/
+
+// Constructs path to events directory
+const eventsPath = path.join(__dirname, './events');
+// Reads the path to the directory and returns an array of all the file names it contains
+const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
+
+// Loop over the array and dynamically set each command into the client.commands Collection
+for (const file of eventFiles) {
+	const filePath = path.join(eventsPath, file);
+	const event = require(filePath);
+	if (event.once) {
+		client.once(event.name, (...args) => event.execute(...args));
+	} else {
+		client.on(event.name, (...args) => event.execute(...args));
+	}
+}
+
 // When the client is ready, run this code (only once)
 // We use 'c' for the event parameter to keep it separate from the already defined 'client'
-client.once(Events.ClientReady, c => {
-	console.log(`Ready! Logged in as ${c.user.tag}`);
-});
+// client.once(Events.ClientReady, c => {
+// 	console.log(`Ready! Logged in as ${c.user.tag}`);
+// });
 
-client.on(Events.InteractionCreate, async interaction => {
-	if (!interaction.isChatInputCommand()) return; // https://discordjs.guide/creating-your-bot/command-handling.html#loading-command-files:~:text=1%0A2%0A3-,Not%20every%20interaction%20is%20a%20slash%20command%20(e.g.%20MessageComponent,.,-client.on
+// client.on(Events.InteractionCreate, async interaction => {
+// 	if (!interaction.isChatInputCommand()) return; // https://discordjs.guide/creating-your-bot/command-handling.html#loading-command-files:~:text=1%0A2%0A3-,Not%20every%20interaction%20is%20a%20slash%20command%20(e.g.%20MessageComponent,.,-client.on
     
-    const command = interaction.client.commands.get(interaction.commandName);
+//     const command = interaction.client.commands.get(interaction.commandName);
 
-	if (!command) {
-		console.error(`No command matching ${interaction.commandName} was found.`);
-		return;
-	}
+// 	if (!command) {
+// 		console.error(`No command matching ${interaction.commandName} was found.`);
+// 		return;
+// 	}
 
-	try {
-		await command.execute(interaction);
-	} catch (error) {
-		console.error(error);
-		if (interaction.replied || interaction.deferred) {
-			await interaction.followUp({ content: 'There was an error while executing this command!', ephemeral: true });
-		} else {
-			await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
-		}
-	}
-});
+// 	try {
+// 		await command.execute(interaction);
+// 	} catch (error) {
+// 		console.error(error);
+// 		if (interaction.replied || interaction.deferred) {
+// 			await interaction.followUp({ content: 'There was an error while executing this command!', ephemeral: true });
+// 		} else {
+// 			await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+// 		}
+// 	}
+// });
 
 // Log in to Discord with your client's token
 client.login(discord_token);
