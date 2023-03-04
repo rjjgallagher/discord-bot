@@ -2,7 +2,7 @@
   "name": "discord-bot",
   "version": "1.0.0",
   "description": "Discord bot for my server.",
-  "main": "src/bot.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "node ."
   },
