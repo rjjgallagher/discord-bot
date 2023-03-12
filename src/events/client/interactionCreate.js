@@ -9,7 +9,10 @@ module.exports = {
 			const { commands } = client;
 			const { commandName } = interaction;
 			const command = commands.get(commandName)
-			if (!command) return
+			if (!command) {
+				console.error(`No command matching ${interaction.commandName} was found.`);
+				return;
+			}
 
 			try {
 				await command.execute(interaction, client);
@@ -25,10 +28,7 @@ module.exports = {
 
 		// const command = interaction.client.commands.get(interaction.commandName);
 
-		// if (!command) {
-		// 	console.error(`No command matching ${interaction.commandName} was found.`);
-		// 	return;
-		// }
+		
 
 		// try {
 		// 	await command.execute(interaction);
