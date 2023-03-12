@@ -32,7 +32,7 @@ client.handleCommands();
 // // Reads the path to the directory and returns an array of all the file names it contains
 // const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 
-// // Loop over the array and dynamically set each command into the client.commands Collection
+// Loop over the array and dynamically set each command into the client.commands Collection
 // for (const file of commandFiles) {
 // 	const filePath = path.join(commandsPath, file);
 // 	const command = require(filePath);
