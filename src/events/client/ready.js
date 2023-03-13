@@ -1,4 +1,4 @@
-const { Events } = require('discord.js');
+const { Events, MessageEmbed} = require('discord.js');
 
 module.exports = {
     // The name property states which event this file is for
@@ -8,5 +8,7 @@ module.exports = {
     // The execute function holds your event logic, which will be called by the event handler whenever the event emits.
 	async execute(client) {
 		console.log(`Ready! Logged in as ${client.user.tag}`);
+		// Initialize voice member cache
+		client.voiceMembersCache = new Map();
 	},
 };

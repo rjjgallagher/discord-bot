@@ -11,7 +11,7 @@ module.exports = {
         .setDescription("The role to assign to yourself.")
         .setRequired(true)
     ),
-  async execute(interaction, client) {
+  async execute(interaction) {
     // Get the role from the interaction options
     const role = interaction.options.getRole("role");
 
