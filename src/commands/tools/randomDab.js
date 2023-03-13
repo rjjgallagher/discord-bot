@@ -8,10 +8,11 @@ module.exports = {
     ),
   async execute(interaction, client) {
     // Get the voice channel that the user is currently in
-    const voiceChannel = interaction.member.voice.channel;
+    //const voiceChannel = interaction.member.voice.channel;
+    const voiceState = interaction.member.voice;
 
     // If the user is not in a voice channel, send an error message
-    if (!voiceChannel) {
+    if (!voiceState.channel) {
       return interaction.reply({
         content: "You need to join a voice channel first!",
         ephemeral: true,
@@ -19,8 +20,7 @@ module.exports = {
     }
 
     try {
-      // Fetch the latest list of members from the server
-      await voiceChannel.members.fetch();
+      const voiceChannel = await client.channels.fetch(voiceState.channelId);
 
       // Get an array of users in the voice channel (excluding bots)
       const voiceMembers = voiceChannel.members.filter(
