@@ -7,8 +7,6 @@ module.exports = {
       "Mention a random user from the current voice channel for blinkerton"
     ),
   async execute(interaction, client) {
-    // Get the voice channel that the user is currently in
-    //const voiceChannel = interaction.member.voice.channel;
     const voiceState = interaction.member.voice;
 
     // If the user is not in a voice channel, send an error message
@@ -20,6 +18,7 @@ module.exports = {
     }
 
     try {
+      // Gets the users voice channel
       const voiceChannel = await client.channels.fetch(voiceState.channelId);
 
       // Get an array of users in the voice channel (excluding bots)
@@ -40,7 +39,7 @@ module.exports = {
 
       // Mention the random user
       return interaction.reply(
-        `Time for <@${randomMember.user.id}> to go to Penjamin City!`
+        `Flight arrival for <@${randomMember.user.id}> headed towards Penjamin City`
       );
     } catch (error) {
       console.error(error);
