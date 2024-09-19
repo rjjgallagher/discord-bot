@@ -14,8 +14,10 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds,] });
 client.commands = new Collection();
 client.commandArray = [];
 
+console.log('Attempting to read from:', path.join(__dirname, 'functions'));
+const functionFiles = fs.readdirSync(path.join(__dirname, 'functions'))
 const functionFolders = fs.readdirSync(`./src/functions`)
-for (const folder of functionFolders) {
+for (const folder of functionFiles) {
 	const functionFiles = fs
 	.readdirSync(`./src/functions/${folder}`)
 	.filter((file) => file.endsWith('.js'));
