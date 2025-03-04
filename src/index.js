@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 // Require the necessary discord.js classes
 const { Client, Collection, GatewayIntentBits } = require('discord.js');
-const { discord_token } = require('../config.json'); // Ensure config.json contains "discord_token"
+const { production_token } = require('../config.json'); // Ensure config.json contains "discord_token"
 
 // Create a new client instance
 const client = new Client({ intents: [
@@ -47,4 +47,4 @@ client.handleEvents();
 client.handleCommands();
 
 // Log in to Discord with your client's token
-client.login(discord_token); // Ensure discord_token is properly defined
+client.login(production_token); // Ensure discord_token is properly defined
