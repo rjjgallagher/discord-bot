@@ -1,4 +1,3 @@
-const { discord_token, clientId, guildId } = require('../../../config.json');
 const { REST, Routes } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
@@ -47,14 +46,14 @@ module.exports = (client) => {
         }
 
         // Construct and prepare an instance of the REST module
-        const rest = new REST({ version: '10' }).setToken(discord_token);
+        const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
 
         try {
             console.log(`Started refreshing ${client.commandArray.length} application (/) commands.`);
 
             // Refresh all commands in the guild with the current set
             const data = await rest.put(
-                Routes.applicationGuildCommands(clientId, guildId),
+                Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID),
                 { body: client.commandArray }
             );
 
