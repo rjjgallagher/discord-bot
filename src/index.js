@@ -5,7 +5,10 @@ const { Client, Collection, GatewayIntentBits } = require('discord.js');
 const { discord_token } = require('../config.json'); // Ensure config.json contains "discord_token"
 
 // Create a new client instance
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({ intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildVoiceStates
+] });
 
 // Attaching commands property to client instance so that we can access our commands in other files
 client.commands = new Collection();
