@@ -1,8 +1,0 @@
-# pack-refs with: peeled fully-peeled sorted 
-3d3a0b86b2a8ce67194d92d99b81b33e0889e023 refs/heads/main
-3d3a0b86b2a8ce67194d92d99b81b33e0889e023 refs/heads/play_music
-1042a1e97f9a59f77bf9962f44dc4a531d735c6d refs/heads/random-mention-from-channel
-940f683ffc55c40de4d9106f54d1810df294363e refs/pull/1/head
-cfaef8b810d6c1eef938097e3b4e5c60c1f1dbd9 refs/pull/2/head
-cefb10f925da4e7e3ee984db6013c6083b93cb2e refs/pull/3/head
-9a818a6ce067a90592adc332442ec25a03c04af7 refs/pull/4/head
