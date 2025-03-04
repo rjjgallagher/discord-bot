@@ -11,7 +11,7 @@ module.exports = (client) => {
             console.error(`Events directory not found at path: ${eventsPath}`);
             return;
         }
-
+ 
         // Read the folders inside events
         const eventFolders = fs.readdirSync(eventsPath);
 
