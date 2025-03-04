@@ -47,4 +47,4 @@ client.handleEvents();
 client.handleCommands();
 
 // Log in to Discord with your client's token
-client.login(production_token); // Ensure discord_token is properly defined
+client.login(process.env.DISCORD_TOKEN); // Ensure discord_token is properly defined
