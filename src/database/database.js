@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-async function connectToDatabase() {
+export default async function connectToDatabase() {
     const dbUrl = process.env.MONGO_DB_URL;
 
     if (!dbUrl) {
