@@ -3,7 +3,7 @@ const path = require("path");
 
 const { Client, Collection, GatewayIntentBits } = require("discord.js");
 
-const connectToDatabase = require("./database/connection.js");
+const { connectToDatabase } = require("./database/connection.js");
 
 
 // Create a new client instance
