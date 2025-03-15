@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 async function connectToDatabase() {
-    const dbUrl = process.env.MONGO_DB_URL;
+    const dbUrl = process.env.MONGO_DB_URL || "mongodb://localhost:27017/sevbot";
 
     if (!dbUrl) {
         throw new Error("MONGO_DB_URL is not defined in environment variables.");
