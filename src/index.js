@@ -3,12 +3,15 @@ const path = require('path');
 // Require the necessary discord.js classes
 const { Client, Collection, GatewayIntentBits } = require('discord.js');
 const { production_token } = require('../config.json'); // Ensure config.json contains "discord_token"
+const connectToDatabase = require("./database/database.js");
 
 // Create a new client instance
 const client = new Client({ intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildVoiceStates
 ] });
+
+connectToDatabase();
 
 // Attaching commands property to client instance so that we can access our commands in other files
 client.commands = new Collection();

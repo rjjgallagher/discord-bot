@@ -21,6 +21,6 @@
     "dotenv": "^16.0.3"
   },
   "devDependencies": {
-    "prettier": "3.5.3"
+    "eslint": "^9.22.0"
   }
 }

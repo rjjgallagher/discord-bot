@@ -6,7 +6,7 @@ module.exports = {
         const userTag = newState.member?.user.tag || oldState.member?.user.tag;
 
         // User joins a voice channel
-        if (!oldState.channel && newState.channel) {
+        if (!oldState.channel && newState.channel) {-
             console.log(`🎤 ${userTag} joined voice channel: ${newState.channel.name}`);
         }
 
