@@ -1,8 +1,10 @@
 const fs = require("fs");
 const path = require("path");
-// Require the necessary discord.js classes
+
 const { Client, Collection, GatewayIntentBits } = require("discord.js");
+
 const connectToDatabase = require("./database/connection.js");
+
 
 // Create a new client instance
 const client = new Client({
