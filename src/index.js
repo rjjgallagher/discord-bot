@@ -11,7 +11,7 @@ const client = new Client({
 
 connectToDatabase();
 
-// Attaching commands property to client instance so that we can access our commands in other files
+// Attaching commands property to client instance
 client.commands = new Collection();
 client.commandArray = [];
 
