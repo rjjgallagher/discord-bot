@@ -1,5 +1,5 @@
 const excludedRoles = require("../../utils/excludedRoles");
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder } = require("discord.js");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -31,7 +31,8 @@ module.exports = {
     } catch (error) {
       console.error(error);
       await interaction.reply({
-        content: "An unexpected error came up.\nFailed to assign the role to yourself.",
+        content:
+          "An unexpected error came up.\nFailed to assign the role to yourself.",
         ephemeral: true,
       });
     }
